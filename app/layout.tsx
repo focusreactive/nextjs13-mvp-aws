@@ -61,7 +61,7 @@ export default function RootLayout({
                 <NavLink href={'/api-routes'}>API Routes</NavLink>
               </li>
               <li>
-                <NavLink href={'/fonts'}>Fonts</NavLink>
+                <NavLink href={'/next-fonts'}>Fonts</NavLink>
               </li>
               <li className={styles.navLogo}>
                 <NavLink href={'https://nextjs.org/'}>

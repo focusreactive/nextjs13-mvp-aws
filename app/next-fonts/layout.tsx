@@ -8,9 +8,9 @@ const Layout = ({ children }: PropsWithChildren) => {
       <h1>Fonts</h1>
 
       <p className={'nav'}>
-        <NavLink href={'/fonts/google'}>Google Fonts</NavLink>
-        <NavLink href={'/fonts/variable'}>CSS Variable</NavLink>
-        <NavLink href={'/fonts/local'}>Local</NavLink>
+        <NavLink href={'/next-fonts/google'}>Google Fonts</NavLink>
+        <NavLink href={'/next-fonts/variable'}>CSS Variable</NavLink>
+        <NavLink href={'/next-fonts/local'}>Local</NavLink>
       </p>
 
       <hr />
