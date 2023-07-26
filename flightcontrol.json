@@ -1,0 +1,25 @@
+{
+    "environments": [
+      {
+        "id": "production",
+        "name": "Production",
+        "region": "eu-central-1",
+        "source": {
+          "branch": "main"
+        },
+        "services": [
+          {
+            "id": "nextjs13-mvp-aws-fc",
+            "name": "NextJS 13 MVP",
+            "type": "fargate",
+            "cpu": 0.25,
+            "memory": 0.5,
+            "minInstances": 1,
+            "maxInstances": 1,
+            "buildCommand": "npm run build",
+            "startCommand": "npm run start"
+          }
+        ]
+      }
+    ]
+  }
