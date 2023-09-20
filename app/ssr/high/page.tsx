@@ -1,3 +1,5 @@
+import BuildInfo from '@/components/BuildInfo/BuildInfo';
+
 export const dynamic = 'force-dynamic';
 
 const ELEMENTS_COUNT = 32;
@@ -16,6 +18,7 @@ export default async function HighSsr() {
 
   return (
     <div className="content-container">
+      <BuildInfo />
       <span>Length: {arr.length}</span>
       {arr.map((nested, i) => (
         <div id="bucket" key={`outer_${i}`}>
