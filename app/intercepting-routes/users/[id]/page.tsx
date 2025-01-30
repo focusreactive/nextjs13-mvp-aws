@@ -2,8 +2,8 @@ import { api } from '@/utils/api';
 import image from './intercepting-routes.png';
 import Doc from './doc.mdx';
 
-const UserPage = async ({ params }: { params: { id: string } }) => {
-  const [user] = await api.user(params.id);
+const UserPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const [user] = await api.user((await params).id);
 
   return (
     <div>

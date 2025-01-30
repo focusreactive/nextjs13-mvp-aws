@@ -3,7 +3,7 @@ import Doc from './doc.mdx';
 import type { Metadata, ResolvingMetadata } from 'next';
 
 type Props = {
-  params: { segment: string };
+  params: Promise<{ segment: string }>;
 };
 
 export async function generateStaticParams() {
@@ -17,7 +17,7 @@ export async function generateMetadata(
   const { title } = await parent;
 
   return {
-    title: `${title?.absolute} - ${params.segment}`,
+    title: `${title?.absolute} - ${(await params).segment}`,
   };
 }
 

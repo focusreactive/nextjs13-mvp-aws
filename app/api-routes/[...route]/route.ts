@@ -26,7 +26,7 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   const data = await request.json();
-  const cookie = cookies();
+  const cookie = await cookies();
 
   if (cookie.get('token')?.value !== '123') {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

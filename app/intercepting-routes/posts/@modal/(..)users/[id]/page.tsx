@@ -1,8 +1,12 @@
 import { api } from '@/utils/api';
 import { BackLink } from '@/components/BackLink';
 
-const UserModalPage = async ({ params }: { params: { id: string } }) => {
-  const [user] = await api.user(params.id);
+const UserModalPage = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
+  const [user] = await api.user((await params).id);
 
   return (
     <dialog open>

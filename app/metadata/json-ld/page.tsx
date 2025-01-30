@@ -4,11 +4,11 @@ import { api } from '@/utils/api';
 import Doc from './doc.mdx';
 
 type Props = {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | undefined }>;
 };
 
 const Page = async ({ searchParams }: Props) => {
-  const id = searchParams.id || '1';
+  const id = (await searchParams).id || '1';
   const [post] = await api.post(id);
   const [user] = await api.user(post.userId);
 

@@ -1,10 +1,7 @@
-// @ts-nocheck
-
 'use client';
 
-import { experimental_useFormStatus as useFormStatus } from 'react-dom';
-import { experimental_useOptimistic as useOptimistic, useRef } from 'react';
-
+import { useFormStatus } from 'react-dom';
+import { useOptimistic, useRef } from 'react';
 import { register } from '@/app/server-actions/client-optimistic/_actions/register';
 import { logout } from '@/app/server-actions/client-optimistic/_actions/logout';
 

@@ -3,7 +3,7 @@ import Doc from './doc.mdx';
 import type { Metadata, ResolvingMetadata } from 'next';
 
 type Props = {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 export async function generateMetadata(
@@ -13,7 +13,7 @@ export async function generateMetadata(
   const { title } = await parent;
 
   return {
-    title: `${title?.absolute} - ${searchParams.id}`,
+    title: `${title?.absolute} - ${(await searchParams).id}`,
   };
 }
 

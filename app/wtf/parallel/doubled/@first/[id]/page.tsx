@@ -6,8 +6,8 @@ export const metadata = {
   title: 'Doubled dynamic page',
 };
 
-const PostPage = async ({ params }: { params: { id: string } }) => {
-  const [user] = await api.user(params.id);
+const PostPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const [user] = await api.user((await params).id);
   const [image] = await api.images();
   const site = user.website;
 

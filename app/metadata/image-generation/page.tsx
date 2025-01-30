@@ -6,13 +6,13 @@ import { api } from '@/utils/api';
 import type { Metadata } from 'next';
 
 type Props = {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | undefined }>;
 };
 
 export async function generateMetadata({
   searchParams,
 }: Props): Promise<Metadata> {
-  const id = searchParams?.id || '1';
+  const id = (await searchParams)?.id || '1';
   const [user] = await api.user(id);
 
   return {
@@ -23,8 +23,8 @@ export async function generateMetadata({
   };
 }
 
-const Page = ({ searchParams }: Props) => {
-  const id = searchParams?.id || '1';
+const Page = async ({ searchParams }: Props) => {
+  const id = (await searchParams)?.id || '1';
 
   return (
     <div>

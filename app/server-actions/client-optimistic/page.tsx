@@ -4,7 +4,7 @@ import { Form } from '@/app/server-actions/client-optimistic/_components/Form';
 import Doc from './doc.mdx';
 
 const Page = async () => {
-  const cookie = cookies().get('user')?.value;
+  const cookie = (await cookies()).get('user')?.value;
   const user = cookie && JSON.parse(cookie);
 
   return (

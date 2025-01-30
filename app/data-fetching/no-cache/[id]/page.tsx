@@ -8,8 +8,8 @@ export const metadata = {
   title: 'Dynamic no cache page',
 };
 
-const PostPage = async ({ params }: { params: { id: string } }) => {
-  const [post] = await api.post(params.id);
+const PostPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const [post] = await api.post((await params).id);
   const [image] = await api.images({ cache: 'no-cache' });
 
   return (

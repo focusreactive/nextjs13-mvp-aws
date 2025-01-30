@@ -68,7 +68,7 @@ import User, { preload } from '@components/User';
 export default async function Page({
   params: { id },
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   preload(id); // starting loading the user data now
   const condition = await fetchCondition();

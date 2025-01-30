@@ -3,8 +3,8 @@ import { draftMode } from 'next/headers';
 import NavLink from '@/components/NavLink/NavLink';
 import Doc from './doc.mdx';
 
-const Page = () => {
-  const { isEnabled } = draftMode();
+const Page = async () => {
+  const { isEnabled } = await draftMode();
 
   return (
     <div className={'content-container'}>
